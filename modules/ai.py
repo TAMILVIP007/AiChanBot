@@ -12,7 +12,7 @@ from config import neko
 @neko.on_message(filters.text, group=100)
 async def ai(Client:neko, message):
     chat_id = message.chat.id
-    bot_id =int(1876246009) #your bot's user id
+    bot_id = 1876246009
     msg=await neko.get_messages(chat_id, message.id)
     if msg.reply_to_message and msg.reply_to_message.from_user.id== bot_id:
         ai_gen = requests.get(f"https://apikatsu.otakatsu.studio/api/chatbot/Iseria?message={message.text}").json()
